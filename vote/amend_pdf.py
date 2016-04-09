@@ -36,8 +36,9 @@ def create_front_page(council,postcode):
         address = council.address.split("\n")
         naddress = ["Electoral Registration Officer"]
         for a in address:#removes duplicates from formatting
+            a = a.strip()
             if a not in naddress:
-                naddress.append(a.strip())
+                naddress.append(a)
                 
         naddress.append(council.postcode)
         
