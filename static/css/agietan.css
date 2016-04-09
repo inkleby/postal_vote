@@ -1,0 +1,99 @@
+body {
+
+		font-family: 'Open Sans', sans-serif;
+		font-size: 15pt;
+}
+	  
+.blockquote {
+  background-color: #D6E6FF;
+  border-left: 10px solid #8AB7FF;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+span.quote {
+    font-style: italic; 
+}
+
+.extended {
+  border: 10px solid lightgrey;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+.content-row{
+
+transition:background-color 1s ease;
+background-color:white;
+}
+
+.highlighted-content {
+
+background-color:yellow;
+}
+
+
+
+p {
+text-align:justify;
+}
+
+.cite-link {
+display:none;
+}
+
+.short-title {
+	font-weight: bold;
+	font-size: 14pt;
+}
+
+.nav-text {
+	font-size: 14pt;
+}
+
+li.hide-item{
+display:none
+}
+
+	  
+	  .banner {
+    padding: 100px 0;
+	color: white;
+    text-shadow: 1px 1px 10px black;
+    background-size: cover;
+}
+	 
+	a.anchor{display: block; position: relative; top: -50px; visibility: hidden;}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+@media (max-width: 922px) {
+.mobile-menu {
+	display:block;
+}
+.large-menu {
+	display:none;
+}
+
+}
+
+@media (min-width: 922px) {
+.mobile-menu {
+	display:none;
+}
+.large-menu {
+	display:block;
+}
+
+}
+
+
+.cite {
+  background: #f9f9f9;
+}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load bootstrap %}
+{% load extra_tags %}
+{% load humanize %}
+{% block head %}
+<title>{{site_name}}</title>
+{% endblock %}
+
+{% block content %}
+
+
+<div class = "container">
+    
+<div class = "jumbotron">
+<h1>Sign Up for Postal Voting</h1>
+</div>
+
+
+<div class = "row">
+
+
+<div class = "col-md-6 col-md-push-6">
+    <p>This website makes it easier to apply for your postal vote.</p>
+
+    <ul>
+    <li>You fill out this form.</li>
+    <li>We give you a pre-filled out form to print.</li>
+    <li>You sign it, and you post it to the local Electoral Registration Officer (we'll tell you the address).</li>
+    </ul>
+    
+    <p>They need to receive it 11 working days before the poll:</p>
+    <ul>
+    <li>20th April - for May Elections (Send by 18th May)</li>
+    <li>6th June - for EU Referendum (Send by 4th June)</li>
+    </ul>
+    
+    <p>You can only get a postal vote if you're already registered to vote - <a href="https://www.gov.uk/register-to-vote" target="_blank">you can register to vote here</a>.
+    You need to register by 18th April to vote in the May Elections, or by the 7th June for the EU Referendum.</p>
+    
+    <p>This is <b>not</b> an official website - you can download the form and fill it in yourself at <a href="http://www.aboutmyvote.co.uk/register-to-vote/postal-vote-application">aboutmyvote.co.uk</a></p>
+
+    <p>This form can't be used for Northern Ireland - <a href="http://www.eoni.org.uk/">go here</a> instead.</p>
+    
+    <p><b>Privacy</b>: We don't store any of your personal details or generated forms.</p>
+   
+    
+    <div class="alert alert-info" role="alert">Should we handle printing and postage as well? <a target="_blank" href="https://docs.google.com/forms/d/1lPtBSYYPusGn-qZzuwM-e4jvZveUWmt6FqBDwF26FDU/viewform"><b>Let us know</b></a></div>
+    
+    
+    </div>
+    
+   
+<div class = "col-md-6 col-md-pull-6">
+<form method="POST">
+    {% csrf_token %}
+    {{ e_form|bootstrap }}
+    <legend>Address Information</legend>
+    {{ add_form|bootstrap }}
+    <legend>Do you need your postal vote sent to another address? (optional)</legend>
+    {{ alt_form|bootstrap }}
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Get Form</button>
+    </div>
+</form>
+
+</div>
+
+
+</div>
+
+{% endblock %}

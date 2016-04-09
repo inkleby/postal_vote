@@ -1,0 +1,118 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block head %}
+<title>{{site_name}}</title>
+{% endblock %}
+
+{% block facebook %}
+<meta property="og:site_name" content="{{site_name}}"/>
+<meta property="og:title" content="{{site_name}}"/>
+<meta property="og:description" content="{{site_desc}}" />
+<meta property="og:image" content="{{share_image}}" />
+{% endblock %}
+
+{% block twitter %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@{{twitter_handle}}">
+<meta name="twitter:title" content="{{site_name}}">
+<meta name="twitter:description" content="{{site_desc}}">
+<meta name="twitter:image" content="{{share_image}}">
+{% endblock %}
+
+<link rel="apple-touch-icon" sizes="57x57" href = "{% static "favicon/apple-icon-57x57.png" %}">
+<link rel="apple-touch-icon" sizes="60x60" href = "{% static "favicon/apple-icon-60x60.png" %}">
+<link rel="apple-touch-icon" sizes="72x72" href = "{% static "favicon/apple-icon-72x72.png" %}">
+<link rel="apple-touch-icon" sizes="76x76" href = "{% static "favicon/apple-icon-76x76.png" %}">
+<link rel="apple-touch-icon" sizes="114x114" href = "{% static "favicon/apple-icon-114x114.png" %}">
+<link rel="apple-touch-icon" sizes="120x120" href = "{% static "favicon/apple-icon-120x120.png" %}">
+<link rel="apple-touch-icon" sizes="144x144" href = "{% static "favicon/apple-icon-144x144.png" %}">
+<link rel="apple-touch-icon" sizes="152x152" href = "{% static "favicon/apple-icon-152x152.png" %}">
+<link rel="apple-touch-icon" sizes="180x180" href = "{% static "favicon/apple-icon-180x180.png" %}">
+<link rel="icon" type="image/png" sizes="192x192"  href = "{% static "favicon/android-icon-192x192.png" %}">
+<link rel="icon" type="image/png" sizes="32x32" href = "{% static "favicon/favicon-32x32.png" %}">
+<link rel="icon" type="image/png" sizes="96x96" href = "{% static "favicon/favicon-96x96.png" %}">
+<link rel="icon" type="image/png" sizes="16x16" href = "{% static "favicon/favicon-16x16.png" %}">
+<link rel="manifest" href = "{% static "favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png" %}">
+<meta name="theme-color" content="#ffffff">
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href={% static "css/inkleby_generic.css" %} rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300' rel='stylesheet' type='text/css'>
+
+{% if IS_LIVE %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+{% else %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+{% endif %}
+
+<link href={% static "css/inkleby_generic.css" %} rel="stylesheet">
+
+
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="{% static 'js/flashcanvas.js' %}"></script>
+<![endif]-->
+
+</head>
+
+<body>
+<br>
+
+{% block content %}
+{% endblock %}
+
+{% include "footer.html" %}
+
+{% if IS_LIVE %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+{% else %}
+
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jSignature.min.js' %}"></script>
+
+    <script>
+    $(document).ready(function() {
+      $(".jsign-container").each(function(){
+        var config = $(this).data('config');
+        var value = $(this).data('initial-value');
+        $(this).jSignature(config);
+        $(this).jSignature("setData", value, "native");
+      });
+
+      /* Each time user is done drawing a stroke, update value of hidden input */
+      $(".jsign-container").on("change", function(e) {
+        var jSignature_data = $(this).jSignature('getData', 'native');
+        var django_field_name = $(this).attr('id').split(/_(.+)/)[1];
+        $('#id_' + django_field_name).val(JSON.stringify(jSignature_data));
+      });
+
+      /* Bind clear button */
+      $(".jsign-wrapper input").on("click", function(e) {
+        $(this).siblings('.jsign-container').jSignature('reset');
+      });
+
+    });
+    </script>
+
+
+
+{% endif %}
+
+
+{% block code %}
+{% endblock %}
+{% if IS_LIVE %}
+{% include "google_analytics.html" %}
+{% endif %}
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+
+
+
+.navbar-nav {
+width: 100%;
+text-align: center;
+> li {
+  float: none;
+  display: inline-block;
+}
+}
+
+
+.navbar-font {
+	font-size: 23px;
+	font-family: 'Raleway', sans-serif;
+	color:#FFF
+	
+}
+
+.navbar-font li a {
+color#FFF
+}
+
+
+.fees-title-brand{
+	color:#FFF
+	
+}
+
+.navbar-font a {
+color:#FFF
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+  #map-canvas {
+    width: 100%;
+    height: 400px;
+    background-color: #CCC;
+  }
+  
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-menu {    // used to be tt-dropdown-menu in older versions
+  width: 422px;
+  margin-top: 4px;
+  padding: 4px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}  
+
+
+.main-title {
+font-size:80px;
+text-align:center
+}
+
+.center {
+	text-align:center
+}
+  
+.search-style {
+height:50px;
+text-align:center
+}
+
+.council-search-style {
+height:50px;
+}
+  
+.comparison-stats{
+	text-align:right;
+}
+
+.header_row {
+background-color:lightblue;
+font-weight: bold
+}
+
+.display_row {
+border-bottom: solid 1px black;
+}
+
+.responsive-top-boarder {
+border-top: solid 0px black;
+}
+
+
+
+.display_row_joined {
+border-bottom: solid 1px black;
+border-right: solid 1px black;
+}
+
+.responsive-show {
+	display:None;
+}
+
+.responsive-right-shift{
+	margin-right:40px
+}
+
+.rcpl{
+	text-align:center;
+}
+
+
+.responsive-center {
+	text-align:left;
+}
+
+
+
+.right {
+	text-align:right;
+}
+
+@media screen and (max-width: 1090px) {
+.responsive-right-shift{
+	margin-right:0px
+}
+}
+
+@media screen and (max-width: 768px) {
+
+    .responsive-top-boarder {
+        border-top: solid 1px black;
+    }
+
+
+
+	.responsive-hide {
+		display:None;
+	}
+	.responsive-show {
+		display:inline;
+	}	
+	.rcpl{
+	text-align:left;
+	}
+	.responsive-center {
+	text-align:center;
+	}	
+	.main-image {
+	width:100%;
+	}
+	
+	.main-title{
+	font-size:50px;
+	}
+	
+	.responsive-center {
+		text-align:center;
+
+	}
+	
+}
+
