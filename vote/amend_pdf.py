@@ -208,5 +208,6 @@ def create_pdf(form=None,sig_image=None):
     response.write(outputStream.getvalue())
     
     outputStream.close()
-    council.increment_count()
+    if council:
+        council.increment_count()
     return response
